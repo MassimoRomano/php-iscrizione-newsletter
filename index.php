@@ -1,13 +1,21 @@
 <?php
-$mail = $_GET['email'];
+$email = $_GET['email'];
+$result = emailControl($email);
 
-if(isset($_GET['email'])){
-    if(filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
-        echo 'Accesso Consentito';
-    }else{
-        echo 'Accesso Negato';
+function emailControl($mail){
+    if (strpos($mail, '@') !== false && strpos($mail, '.') !== false) {
+        return [
+            'status' =>  'success',
+            'message' => 'Grande ora fai parte della famiglia',
+        ];
+    } else {
+        return [
+            'status' =>  'danger',
+            'message' => 'Ritenta la tua email non e valida'
+        ];  
     }
-};
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +54,24 @@ if(isset($_GET['email'])){
     </header>
 
     <main>
+        <?php if(isset($result)) :  ?>
+        
+        <div
+            class="alert alert-primary alert-dismissible position-absolute top-10 start-0 alert-<?= $result['status']; ?>"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+        
+            <strong><?= $result['message'] ?></strong> 
+        </div>
+
+        <?php endif; ?>
+       
         <div class="jumbo-img text-white" id="">
             <div class="container-fluid py-5 d-flex flex-column justify-content-center align-items-center">
                 <h1 class="display-5 fw-bold">Registrati alla News Letter</h1>
@@ -62,9 +88,9 @@ if(isset($_GET['email'])){
                         <p>Inserisci la tua mail e ricevi ogni settimana 4 wallpaper unici</p>
                         <form action="" method="get">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
                             </div>
                             <button type="submit" class="btn btn-primary">Registrati</button>
                         </form>
