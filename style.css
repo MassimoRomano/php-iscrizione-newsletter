@@ -1,0 +1,17 @@
+.jumbo-img{
+  background-image: url('./assets/image/sfondo-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-nav{
+    background-color: #0D132D;
+}
+
+.bg-nav-foot{
+    background-color: #0D132D;
+    height: 50px;
+    padding: 15px;
+    color: white;
+
+}
