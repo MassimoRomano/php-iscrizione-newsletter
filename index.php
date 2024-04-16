@@ -1,20 +1,5 @@
 <?php
-$email = $_GET['email'];
-$result = emailControl($email);
-
-function emailControl($mail){
-    if (strpos($mail, '@') !== false && strpos($mail, '.') !== false) {
-        return [
-            'status' =>  'success',
-            'message' => 'Grande ora fai parte della famiglia',
-        ];
-    } else {
-        return [
-            'status' =>  'danger',
-            'message' => 'Ritenta la tua email non e valida'
-        ];  
-    }
-}
+require_once __DIR__ . '/assets/partials/function.php'
 
 ?>
 
@@ -31,27 +16,9 @@ function emailControl($mail){
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-nav ">
-            <div class="container">
-                <a class="navbar-brand text-white" href="#">NewsLetter</a>
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link link-light" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-light" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-light" href="#">Info</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <?php
+    include_once __DIR__. '/assets/partials/head.php' 
+    ?>
 
     <main>
         <?php if(isset($result)) :  ?>
@@ -89,7 +56,7 @@ function emailControl($mail){
                         <form action="" method="get">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
                             </div>
                             <button type="submit" class="btn btn-primary">Registrati</button>
@@ -170,11 +137,11 @@ function emailControl($mail){
             </div>
         </div>
     </main>
-
+    <?php
+    include_once __DIR__. '/assets/partials/foot.php' 
+    ?>
     <footer>
-        <div class="bg-nav-foot d-flex justify-content-center">
-            <p><i class="fa-regular fa-copyright"></i> Create by Massimo</p>
-        </div>
+       
 
     </footer>
 
