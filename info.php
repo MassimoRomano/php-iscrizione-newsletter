@@ -3,7 +3,7 @@
     include_once __DIR__ . '/assets/head.php';
     ?>
 
-<main class="info-main">
+<main id="info-m">
     <div class="container mt-5">
         <div class=" flex-column justify-content-center align-item-center">
             <h1 class="text-center mt-5">Chi Siamo</h1>
@@ -12,14 +12,9 @@
         <div class="form-group">
             <label for="my-textarea mt-5">Inviaci un messaggio</label>
             <textarea id="my-textarea" class="form-control mt-2" name="" rows="3"></textarea>
-            <button class="btn btn-dark mt-3" type="submit">Invia</button>
+            <button class="btn btn-dark my-3" type="submit">Invia</button>
         </div>
     </div>
 </main>
 
 
-<footer>
-    <?php
-    include_once __DIR__ . '/assets/foot.php'
-    ?>
-</footer>

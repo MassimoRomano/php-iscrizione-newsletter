@@ -32,6 +32,3 @@ include_once __DIR__ . '/assets/head.php';
 
 </main>
 
-<?php
-include_once __DIR__ . '/assets/foot.php'
-?>

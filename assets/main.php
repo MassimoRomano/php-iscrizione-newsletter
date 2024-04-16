@@ -1,10 +1,5 @@
 <!-- ALERT MESSAGE -->
-<?php if (isset($result)) :  ?>
-    <div class="alert alert-primary alert-dismissible position-absolute top-10 start-0 alert-<?= $result['status']; ?>" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        <strong><?= $result['message'] ?></strong>
-    </div>
-<?php endif; ?>
+
 <!-- Jumbotron -->
 <div class="jumbo-img text-white" id="">
     <div class="container-fluid py-5 d-flex flex-column justify-content-center align-items-center">
@@ -21,7 +16,7 @@
             </div>
             <div class="offcanvas-body text-light">
                 <p>Inserisci la tua mail e ricevi ogni settimana 4 wallpaper unici</p>
-                <form action="" method="get">
+                <form action="success.php" method="get">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
